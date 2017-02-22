@@ -1,18 +1,18 @@
 variable "environment" {
-  default="test"
+  default = "test"
 }
 
 variable "aws_region" {
-  default="us-east"
+  default = "us-east"
 }
 
 variable "max_zones" {
-    description = "The max # of availability zones to use. If this is larger in the region supports, only the max available will be used."
-    default = "3"
+  description = "The max # of availability zones to use. If this is larger in the region supports, only the max available will be used."
+  default     = "3"
 }
 
 variable "vpc_name" {
-  default="the_vpc"
+  default = "the_vpc"
 }
 
 variable "vpc_cidr" {

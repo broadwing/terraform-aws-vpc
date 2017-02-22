@@ -19,3 +19,4 @@ output "private_subnet_ids" {
 # output "nat_gateway_ips" {
 #   value = ["${aws_eip.nat.*.public_ip}"]
 # }
+
