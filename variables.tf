@@ -30,3 +30,11 @@ variable "enable_dns_support" {
 variable "enable_dns_hostnames" {
   default = false
 }
+
+variable "create_rds_subnet_group" {
+	default = true
+}
+
+variable "create_elasticache_subnet_group" {
+	default = true
+}
