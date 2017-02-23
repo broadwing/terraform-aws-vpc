@@ -1,9 +1,9 @@
 # Private Subnets Tier
 resource "aws_subnet" "private_subnets" {
   /* 
-            Creates a dynamic number of subnets, 1 per AZ, with a max being equal to 
-            the num of AZ available in the set region
-            */
+              Creates a dynamic number of subnets, 1 per AZ, with a max being equal to 
+              the num of AZ available in the set region
+              */
   count = "${(var.max_zones > length(data.aws_availability_zones.available.names) ? 
         length(data.aws_availability_zones.available.names):var.max_zones)}"
 
@@ -54,22 +54,21 @@ resource "aws_route_table_association" "private_subnets" {
 resource "aws_db_subnet_group" "main-db-subnet-group" {
   count = "${var.create_rds_subnet_group ? 1 : 0}"
 
-  name = "rds-subnet-group"
+  name        = "rds-subnet-group"
   description = "RDS Subnet Group"
-  subnet_ids = ["${aws_subnet.private_subnets.*.id}"]
+  subnet_ids  = ["${aws_subnet.private_subnets.*.id}"]
 
   tags {
-    Name = "RDS Subnet Group"
+    Name        = "RDS Subnet Group"
     Environment = "${var.environment}"
   }
-
 }
 
 # Elasticache Subnet Groups
 resource "aws_elasticache_subnet_group" "main-ec-subnet-group" {
   count = "${var.create_elasticache_subnet_group ? 1 : 0}"
 
-  name = "elasticache-subnet-group"
+  name        = "elasticache-subnet-group"
   description = "Elasticache Subnet Group"
-  subnet_ids = ["${aws_subnet.private_subnets.*.id}"]
+  subnet_ids  = ["${aws_subnet.private_subnets.*.id}"]
 }

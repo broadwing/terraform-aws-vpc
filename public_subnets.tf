@@ -1,9 +1,9 @@
 # Public Subnets Tier
 resource "aws_subnet" "public_subnets" {
   /* 
-            Creates a dynamic number of subnets, 1 per AZ, with a max being equal to 
-            the num of AZ available in the set region
-            */
+              Creates a dynamic number of subnets, 1 per AZ, with a max being equal to 
+              the num of AZ available in the set region
+              */
   count = "${(var.max_zones > length(data.aws_availability_zones.available.names) ? 
         length(data.aws_availability_zones.available.names):var.max_zones)}"
 

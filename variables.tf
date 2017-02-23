@@ -32,9 +32,9 @@ variable "enable_dns_hostnames" {
 }
 
 variable "create_rds_subnet_group" {
-	default = true
+  default = true
 }
 
 variable "create_elasticache_subnet_group" {
-	default = true
+  default = true
 }
