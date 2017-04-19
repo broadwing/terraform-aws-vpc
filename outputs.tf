@@ -24,6 +24,14 @@ output "private_subnet_ids" {
   value = ["${aws_subnet.private_subnets.*.id}"]
 }
 
+output "db_subnet_group" {
+  value = ["${aws_db_subnet_group.main-db-subnet-group.id}"]
+}
+
+output "aws_elasticache_subnet_group" {
+  value = ["${aws_elasticache_subnet_group.main-ec-subnet-group.id}"]
+}
+
 # output "nat_gateway_ips" {
 #   value = ["${aws_eip.nat.*.public_ip}"]
 # }
