@@ -24,11 +24,11 @@ output "private_subnet_ids" {
   value = ["${aws_subnet.private_subnets.*.id}"]
 }
 
-output "db_subnet_group" {
+output "db_subnet_group_id" {
   value = ["${aws_db_subnet_group.main-db-subnet-group.id}"]
 }
 
-output "elasticache_subnet_group" {
+output "elasticache_subnet_group_id" {
   value = ["${aws_elasticache_subnet_group.main-ec-subnet-group.id}"]
 }
 
