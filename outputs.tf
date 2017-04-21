@@ -32,6 +32,14 @@ output "elasticache_subnet_group_id" {
   value = ["${aws_elasticache_subnet_group.main-ec-subnet-group.id}"]
 }
 
+output "public_subnet_route_ids" {
+  value = ["${aws_route_table.public_subnets.*.id}"]
+}
+
+output "private_subnet_route_ids" {
+  value = ["${aws_route_table.private_subnets.*.id}"]
+}
+
 # output "nat_gateway_ips" {
 #   value = ["${aws_eip.nat.*.public_ip}"]
 # }
